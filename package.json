@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "convex": "^1.17.2",
+    "convex-helpers": "^0.1.65",
+    "jose": "^5.9.6",
     "next": "14.2.18",
     "next-auth": "^5.0.0-beta.25",
     "react": "^18",
