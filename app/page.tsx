@@ -1,17 +1,24 @@
 import Navbar from "@/components/static/Navbar";
 import Hero from "@/components/static/Hero";
+import Features from "../components/static/Features";
+import Contact from "@/components/static/Contact";
+import Footer from "@/components/static/Footer";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <Hero />
-      <section id="about" className="w-100 border">
-        about
-      </section>
-      <section id="features" className="w-100 border">
-        features
-      </section>
+      <div className="container mx-auto">
+        <Separator />
+      </div>
+      <Features />
+      <div className="container mx-auto">
+        <Separator />
+      </div>
+      <Contact />
+      <Footer />
     </>
   );
 }
