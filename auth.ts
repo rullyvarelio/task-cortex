@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { ConvexAdapter } from "./app/ConvexAdapter";
 import { importPKCS8, SignJWT } from "jose";
+
 if (process.env.CONVEX_AUTH_PRIVATE_KEY === undefined) {
   throw new Error("Missing CONVEX_AUTH_PRIVATE_KEY");
 }
