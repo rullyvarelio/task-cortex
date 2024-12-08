@@ -19,13 +19,6 @@ function Links() {
       >
         Features
       </Link>
-      <Link
-        href="#contact"
-        className="text-lg font-medium hover:underline underline-offset-4 "
-        prefetch={false}
-      >
-        Contact
-      </Link>
       <form action={signInAction}>
         <Button className="text-lg font-medium">Login</Button>
       </form>
