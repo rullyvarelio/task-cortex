@@ -4,12 +4,14 @@ import Image from "next/image";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
-import { signInAction } from "@/actions/auth-action";
 import { useEffect, useState } from "react";
 import { ThemeToggler } from "./ThemeToggler";
 import { useTheme } from "next-themes";
+import { signIn, useSession } from "next-auth/react";
 
 function Links() {
+  const session = useSession();
+  const username = session?.data?.user?.username;
   return (
     <>
       <Link
@@ -19,9 +21,12 @@ function Links() {
       >
         Features
       </Link>
-      <form action={signInAction}>
-        <Button className="text-lg font-medium">Login</Button>
-      </form>
+      <Button
+        onClick={() => signIn("google", { redirectTo: `/user/${username}` })}
+        className="text-lg font-medium"
+      >
+        Login
+      </Button>
       <ThemeToggler />
     </>
   );

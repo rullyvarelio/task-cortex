@@ -4,6 +4,8 @@ import { Outfit } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import iconLight from "@/public/icon.svg";
 import iconDark from "@/public/icon-dark.svg";
+import Providers from "./providers";
+import { auth } from "@/auth";
 
 const inter = Outfit({ subsets: ["latin"] });
 
@@ -23,22 +25,25 @@ export const metadata: Metadata = {
     },
   ],
 };
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await auth();
   return (
     <html lang="en" className="scrollbar-hidden" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <Providers session={session}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

@@ -1,8 +1,11 @@
-import { Button } from "../ui/button";
-import { MoveRight } from "lucide-react";
-import { signInAction } from "@/actions/auth-action";
+"use client";
+// import { Button } from "../ui/button";
+// import { MoveRight } from "lucide-react";
+// import { signIn, useSession } from "next-auth/react";
 
 export default function Hero() {
+  // const session = useSession();
+  // const username = session?.data?.user?.username;
   return (
     <section className="min-h-screen flex justify-center items-center ">
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
@@ -16,12 +19,16 @@ export default function Hero() {
           Every Aspect of Your Life
         </p>
         <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-          <form action={signInAction}>
-            <Button size={"lg"} className="text-lg">
-              Get Started
-              <MoveRight fontSize={"2rem"} />
-            </Button>
-          </form>
+          {/* <Button
+            onClick={() =>
+              signIn("google", { redirectTo: `/user/${username}` })
+            }
+            size={"lg"}
+            className="text-lg"
+          >
+            Get Started
+            <MoveRight fontSize={"2rem"} />
+          </Button> */}
         </div>
       </div>
     </section>

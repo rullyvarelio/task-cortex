@@ -29,6 +29,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: ConvexAdapter,
   callbacks: {
     async session({ session }) {
+      if (session?.user?.email) {
+        session.user.username = session.user.email.split("@")[0];
+      }
       const privateKey = await importPKCS8(
         process.env.CONVEX_AUTH_PRIVATE_KEY!,
         "RS256"
